@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal da Turma</title>
+    <style>
+        /* Importando a fonte Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('https://img.freepik.com/vetores-gratis/material-escolar-no-quadro-negro_23-2148587747.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Preto transparente */
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            color: white; /* Cor da letra continua branca */
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Transparente */
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9); /* Transparente */
+            width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background-color: #555;
+        }
+    </style>
+    <script>
+        function exibirConteudos(materia) {
+            alert("Exibindo conteúdos para: " + materia);
+        }
+
+        function sairPortal() {
+            // Redireciona de volta para a página de login
+            window.location.href = "BancoDeDados.html"; // Certifique-se de que o caminho do Login.html está correto
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Portal da Turma
+    </header>
+    <nav>
+        <a href="#inicio">Página Inicial</a>
+        <a href="ConteudoDiario.html">Conteúdo Diário</a>
+        <a href="AvisosSite.html">Avisos</a>
+        <a href="index.html" onclick="sairPortal()">Sair</a>
+    </nav>
+    <div class="container">
+        <!-- Cards das matérias -->
+        <div class="card">
+            <h3>Português</h3>
+            <button onclick="exibirConteudos('Português')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>Matemática</h3>
+            <button onclick="exibirConteudos('Matemática')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>Ciências</h3>
+            <button onclick="exibirConteudos('Ciências')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>História</h3>
+            <button onclick="exibirConteudos('História')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>Geografia</h3>
+            <button onclick="exibirConteudos('Geografia')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>Inglês</h3>
+            <button onclick="exibirConteudos('Inglês')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>Artes</h3>
+            <button onclick="exibirConteudos('Artes')">Ver Conteúdos</button>
+        </div>
+        <div class="card">
+            <h3>Educação Física</h3>
+            <button onclick="exibirConteudos('Educação Física')">Ver Conteúdos</button>
+        </div>
+    </div>
+    <footer style="margin-top: 20px; text-align: center; padding: 10px; background-color: rgba(0, 0, 0, 0.7); color: white; font-size: 14px;">
+        Este site foi desenvolvido por Murillo, com colaboração de Alice e Julia. 
+        Qualquer dúvida, entre em contato com um de nós.
+    </footer>
+</body>
+</html>

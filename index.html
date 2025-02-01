@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Diário Escolar</title>
+    <style>
+        /* Seus estilos existentes */
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://img.freepik.com/vetores-gratis/material-escolar-no-quadro-negro_23-2148587747.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #FFEB3B;
+        }
+        input[type="text"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FFEB3B;
+            color: #283593;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #fbc02d;
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div class="login-container" id="login-container">
+        <h2>Diário Escolar - Login</h2>
+        <input type="text" id="ra" placeholder="Digite seu NI (Número de Inscrição)">
+        <input type="password" id="senha" placeholder="Digite sua senha">
+        <button onclick="verificarLogin()">Entrar</button>
+        <div id="mensagem"></div>
+    </div>
+
+    <script>
+        // Lista de logins com NI e senhas
+        const logins = {
+            106514: { nome: 'Alice', senha: '@Alice2010' },
+            160548: { nome: 'Carlos', senha: '@Carlos2010' },
+            179533: { nome: 'Fabiana', senha: '@Fabiana2010' },
+            180215: { nome: 'Felipe', senha: '@Felipe2010' },
+            227650: { nome: 'Gabriel', senha: '@Gabriel2011' },
+            247171: { nome: 'Gabrieli', senha: '@Gabrieli2011' },
+            284534: { nome: 'Isabelly', senha: '@Isabelly2010' },
+            351824: { nome: 'Julia', senha: '@Julia2010' },
+            380244: { nome: 'Lucas', senha: '@Lucas2010' },
+            385986: { nome: 'Marco', senha: '@Marco2010' },
+            415066: { nome: 'Maria', senha: '@Maria2010' },
+            424799: { nome: 'Matheus', senha: '@Matheus2010' },
+            569002: { nome: 'Murillo', senha: '@Murillo2011' },
+            684430: { nome: 'Rhyan', senha: '@Rhyan2011' },
+            684900: { nome: 'Richard', senha: '@Richard2010' },
+            74917: { nome: 'Safira', senha: '@Safira2011' },
+            815957: { nome: 'Victor', senha: '@Victor2010' },
+            750458: { nome: 'Vinicius', senha: '@Vinicius2010' },
+            714723: { nome: 'Vithor', senha: '@Vithor2011' },
+            575474: { nome: 'João', senha: '@Joao?' }
+        };
+
+        function verificarLogin() {
+            const ni = document.getElementById("ra").value;
+            const senha = document.getElementById("senha").value;
+            const mensagem = document.getElementById("mensagem");
+
+            if (logins[ni] && logins[ni].senha === senha) {
+                mensagem.style.color = "lightgreen";
+                mensagem.textContent = `Bem-vindo, ${logins[ni].nome}! Entrando...`;
+                
+                // Redireciona para o portal da turma
+                setTimeout(() => {
+                    window.location.href = "PortalSite.html"; // Substitua pelo caminho real
+                }, 2000);
+            } else {
+                mensagem.style.color = "red";
+                mensagem.textContent = "Número de Inscrição ou senha incorretos. Tente novamente.";
+            }
+        }
+    </script>
+</body>
+</html>

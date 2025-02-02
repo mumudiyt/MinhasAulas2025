@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Login - Minhas Aulas 2025!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Diário Escolar</title>
     <style>
         /* Seus estilos existentes */
         body {
@@ -14,60 +15,123 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            transition: background 0.3s ease-in-out;
         }
+
         .login-container {
             background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
             color: #FFEB3B;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            opacity: 0;
+            animation: slideUp 1s forwards;
         }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         input[type="text"], input[type="password"] {
             width: 80%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin: 15px 0;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out;
         }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            transform: scale(1.05);
+            outline: none;
+            border: 2px solid #00bcd4; /* Azul moderno */
+        }
+
         button {
-            padding: 10px 20px;
-            background-color: #FFEB3B;
+            padding: 12px 25px;
+            background-color: #FFEB3B; /* Cor original */
             color: #283593;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease;
         }
+
         button:hover {
             background-color: #fbc02d;
+            transform: translateY(-5px);
         }
-        h1 {
-            font-size: 4rem;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
             font-weight: bold;
+        }
+
+        #mensagem {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        /* Responsividade */
+        @media screen and (max-width: 600px) {
+            .login-container {
+                padding: 30px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            input[type="text"], input[type="password"] {
+                width: 90%;
+                font-size: 14px;
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Tela de Login -->
     <div class="login-container" id="login-container">
-        <h2>Minhas Aulas 2025! - Login</h2>
-        <input type="text" id="ra" placeholder="Digite seu usuário">
+        <h2>Diário Escolar - Login</h2>
+        <input type="text" id="ra" placeholder="Usuario">
         <input type="password" id="senha" placeholder="Digite sua senha">
         <button onclick="verificarLogin()">Entrar</button>
         <div id="mensagem"></div>
     </div>
 
     <script>
-        // Lista de logins com NI e senhas
+        // Lista de logins com usuário e senhas
         const logins = {
-                    minhasatividades2025: { nome: 'Aluno', senha: '@Alice2025' }
+            "senha123": { nome: "minhasatividades2025", senha: "@Alice2025" }
         };
 
         function verificarLogin() {
-            const ni = document.getElementById("ra").value;
+            const usuario = document.getElementById("ra").value;
             const senha = document.getElementById("senha").value;
             const mensagem = document.getElementById("mensagem");
 
-            if (logins[ni] && logins[ni].senha === senha) {
+            if (logins[usuario] && logins[usuario].senha === senha) {
                 mensagem.style.color = "lightgreen";
                 mensagem.textContent = `Bem-vindo! Entrando...`;
                 

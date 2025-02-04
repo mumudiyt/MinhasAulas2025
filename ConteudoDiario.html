@@ -168,6 +168,37 @@
             </div>
         </div>
 
+<div id="conteudo-20250204-educacaofisica" class="example-content">
+            <h3>Conteúdo de Educação Física  - Esportes de Aventura na Natureza</h3>
+            <p><strong>Data:</strong> 04/02/2025</p>
+            <p><strong>Tema:</strong> Esportes de Aventura na Natureza</p>
+            <p><strong>Resumo:</strong> Aprendemos sobre esportes de aventura, seus riscos e classificações, conhecendo exemplos como rapel, paraquedismo e mergulho.</p>
+            <div class="view-more">
+                <a href="EducacaoFisica_20250204.html">Ver Mais</a>
+            </div>
+        </div>
+
+<div id="conteudo-20250204-ciencias" class="example-content">
+            <h3>Conteúdo de Ciências - O que é ciência?</h3>
+            <p><strong>Data:</strong> 04/02/2025</p>
+            <p><strong>Tema:</strong> O que é ciência?</p>
+            <p><strong>Resumo:</strong> Refletimos sobre o conceito de ciência, assistimos a um vídeo explicativo e escolhemos descobertas científicas essenciais para a vida.</p>
+            <div class="view-more">
+                <a href="Ciencias_20250204.html">Ver Mais</a>
+            </div>
+        </div>
+
+ <!-- Conteúdos com IDs específicos -->
+  <div id="conteudo-20250204-orientacao" class="example-content">
+            <h3>Conteúdo de Orientação de Estudos - História em Quadrinhos e Humor</h3>
+            <p><strong>Data:</strong> 04/02/2025</p>
+            <p><strong>Tema:</strong> História em Quadrinhos e Humor</p>
+            <p><strong>Resumo:</strong> Analisamos HQs e como humor e ironia constroem significado nas histórias, lendo e interpretando uma tirinha do livro didático.</p>
+            <div class="view-more">
+                <a href="O.E_20250204.html">Ver Mais</a>
+            </div>
+        </div>
+
         <!-- Conteúdos com IDs específicos -->
         <div id="conteudo-20250203" class="example-content">
             <h3>Conteúdo de Língua Portuguesa - Memórias não são só memórias.</h3>
@@ -175,7 +206,7 @@
             <p><strong>Tema:</strong> Memórias não são só memórias.</p>
             <p><strong>Resumo:</strong> Analisamos Memórias Póstumas de Brás Cubas e a música Memórias, da Pitty, refletindo sobre memória e identidade.</p>
             <div class="view-more">
-                <a href="LP 20250203.html">Ver Mais</a>
+                <a href="LP_20250203.html">Ver Mais</a>
             </div>
         </div>
 
@@ -201,15 +232,18 @@
                 conteudo.style.display = 'none'; // Esconde todos os conteúdos
             });
 
-            const conteudoFiltrado = document.getElementById(`conteudo-${dataFormatada}`);
-            console.log('Conteúdo filtrado:', conteudoFiltrado); // Verifica se o conteúdo foi encontrado
+const conteudosFiltrados = document.querySelectorAll(`[id^="conteudo-${dataFormatada}"]`);
+console.log('Conteúdos filtrados:', conteudosFiltrados); // Verifica se encontrou algo
 
-            if (conteudoFiltrado) {
-                conteudoFiltrado.style.display = 'block'; // Mostra o conteúdo correspondente
-            } else {
-                alert('Nenhum conteúdo encontrado para a data selecionada.');
-                conteudos.forEach(conteudo => conteudo.style.display = 'block'); // Mostra todos os conteúdos
-            }
+if (conteudosFiltrados.length > 0) {
+    conteudosFiltrados.forEach(conteudo => {
+        conteudo.style.display = 'block'; // Mostra cada conteúdo correspondente
+    });
+} else {
+    alert('Nenhum conteúdo encontrado para a data selecionada.');
+    conteudos.forEach(conteudo => conteudo.style.display = 'block'); // Mostra todos os conteúdos
+}
+
         }
     </script>
 
